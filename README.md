@@ -29,8 +29,10 @@ WebSignDisplay v2 is designed for resort and hospitality digital signage. It dis
 
 1. ## Download Precompiled APK
 
-If you do not wish to build the project yourself, precompiled APKs are available in the releases folder.
+If you do not wish to build the project yourself, precompiled APKs are available in the GitHub Releases section:
 
+https://github.com/grimmier378/WebSignDisplayv2/releases
+ 
 2. Copy APK to USB drive
 3. Install via OTG method
 4. Launch app
