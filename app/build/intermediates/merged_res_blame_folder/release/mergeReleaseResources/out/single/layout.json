@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.mattlabs.websigndisplay.app-mergeReleaseResources-43:/layout/activity_fullscreen.xml",
+        "source": "com.mattlabs.websigndisplay.app-main-45:/layout/activity_fullscreen.xml"
+    },
+    {
+        "merged": "com.mattlabs.websigndisplay.app-mergeReleaseResources-43:/layout/settings_activity.xml",
+        "source": "com.mattlabs.websigndisplay.app-main-45:/layout/settings_activity.xml"
+    }
+]

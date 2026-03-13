@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Sign Display Settings">
+
+        <!-- The URL to display. Auto-prefixed with http:// if no scheme is given. -->
+        <EditTextPreference
+            app:key="url"
+            app:title="Sign URL"
+            app:summary="Enter the full URL of the sign page"
+            app:defaultValue=""
+            app:useSimpleSummaryProvider="true" />
+
+        <!--
+            Auto Start: launch the app automatically when the device boots.
+            KNOWN ISSUE: Non-functional on latest Fire OS — Amazon platform restriction.
+            Tracked for a future release.
+        -->
+        <SwitchPreferenceCompat
+            app:key="autoStartToggle"
+            app:title="Auto Start on Boot"
+            app:summary="Launch app automatically when device starts (see known issues)"
+            app:defaultValue="false" />
+
+        <!--
+            Aggressive Restart: if the app is backgrounded or closed, restart it
+            immediately. Prevents users from navigating away from the sign display.
+        -->
+        <SwitchPreferenceCompat
+            app:key="autoReStartToggle"
+            app:title="Aggressive Restart"
+            app:summary="Keep app in focus — restart if backgrounded or closed"
+            app:defaultValue="false" />
+
+        <!--
+            Auto Reload: periodically reload the sign URL to pick up content changes.
+            Interval is set by the field below.
+        -->
+        <SwitchPreferenceCompat
+            app:key="autoReloadToggle"
+            app:title="Auto Reload Page"
+            app:summary="Periodically reload the sign URL"
+            app:defaultValue="false" />
+
+        <!--
+            Reload interval in minutes. Validated in SettingsActivity to be >= 1.
+            Input type is set programmatically in SettingsActivity
+            via setOnBindEditTextListener.
+        -->
+        <EditTextPreference
+            app:key="autoReloadInterval"
+            app:title="Reload Interval (minutes)"
+            app:summary="How often to reload the page. Minimum: 1 minute."
+            app:defaultValue="10"
+            android:inputType="number" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

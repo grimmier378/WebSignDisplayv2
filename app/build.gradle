@@ -1,0 +1,65 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    // App namespace — matches the package used in all Kotlin source files
+    namespace 'com.mattlabs.websigndisplay'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.mattlabs.websigndisplay"
+        // minSdk 23 = Android 6.0 — required by androidx.core:core-ktx:1.18.0.
+        // Fire OS 6 (API 25) is the oldest currently sold Firestick generation;
+        // the original gen 1/2 Firestick (Fire OS 5 / API 22) is no longer supported.
+        minSdk 23
+        // targetSdk 36 = Android 16 — covers Fire OS 8 and Fire OS 14 devices
+        targetSdk 36
+        versionCode 2
+        versionName "2.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            // Minification disabled — keeps the APK debuggable for IT teams
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    // View binding generates type-safe binding classes for each layout file
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    // Core Android + Kotlin extensions
+    implementation 'androidx.core:core-ktx:1.18.0'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'com.google.android.material:material:1.13.0'
+
+    // Preference library — provides PreferenceFragmentCompat and preference XML inflation
+    implementation 'androidx.preference:preference-ktx:1.2.1'
+
+    // Coroutines — replaces java.util.Timer for repeating background jobs
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2'
+
+    // Unit testing
+    testImplementation 'junit:junit:4.13.2'
+
+    // Instrumented testing (requires connected device)
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
