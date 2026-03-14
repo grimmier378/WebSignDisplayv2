@@ -4,6 +4,8 @@ local.properties
 # Gradle build cache and daemon files
 .gradle/
 build/
+build/reports/
+build/reports/problems/problems-report.html
 app/build/
 
 # Kotlin compiler artifacts
@@ -24,4 +26,5 @@ Thumbs.db
 
 # claude
 .claude/
+CLAUDE.md
 releases/
