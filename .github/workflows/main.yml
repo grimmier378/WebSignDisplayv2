@@ -80,11 +80,19 @@ jobs:
           echo "APK_PATH=dist/WebSignDisplay-${VERSION}.apk" >> $GITHUB_ENV
           echo "APK_NAME=WebSignDisplay-${VERSION}.apk" >> $GITHUB_ENV
 
-      - name: Create GitHub Release
+      - name: Create release or replace APK asset
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create "${GITHUB_REF_NAME}" \
-            "${APK_PATH}#${APK_NAME}" \
-            --title "WebSignDisplay ${GITHUB_REF_NAME}" \
-            --generate-notes
+          TAG="${GITHUB_REF_NAME}"
+
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG already exists. Replacing APK asset if present..."
+            gh release upload "$TAG" "${APK_PATH}#${APK_NAME}" --clobber
+          else
+            echo "Release $TAG does not exist. Creating it..."
+            gh release create "$TAG" \
+              "${APK_PATH}#${APK_NAME}" \
+              --title "WebSignDisplay ${TAG}" \
+              --generate-notes
+          fi
