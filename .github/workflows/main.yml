@@ -15,7 +15,7 @@ jobs:
     env:
       JAVA_VERSION: '17'
       ANDROID_API_LEVEL: '36'
-      ANDROID_BUILD_TOOLS: '35.0.0'
+      ANDROID_BUILD_TOOLS: '35.0.2'
 
     steps:
       - name: Check out repo
@@ -36,26 +36,11 @@ jobs:
           unzip -q cmdline-tools.zip
           mv cmdline-tools latest
 
-      - name: Accept Android SDK licenses
-        run: |
-          mkdir -p "$HOME/android-sdk/licenses"
-          printf '\n8933bad161af4408704928bffc4bc9da7d6c81f3\nd56f5187479451eabf01fb78af6dfcb131a6481e\n24333f8a63b6825ea9c5514f83c2829b004d1fee' \
-            > "$HOME/android-sdk/licenses/android-sdk-license"
-          printf '\n84831b9409646a918e30573bab4c9c91346d8abd\n504667f4c0de7af1a06de9f4b1727b84351f2910' \
-            > "$HOME/android-sdk/licenses/android-sdk-preview-license"
-          printf '\n601085b94cd77f0b54ff86406957099ebe79c4d6' \
-            > "$HOME/android-sdk/licenses/android-googletv-license"
-          printf '\n859f317696f67ef3d7f30a50a5560e7834b43903' \
-            > "$HOME/android-sdk/licenses/android-sdk-arm-dbt-license"
-          printf '\n33b6937b6a3b65cc81d77c32c0a4e7dc6ce0a93e' \
-            > "$HOME/android-sdk/licenses/google-gdk-license"
-          printf '\ne9acab5b5fbb560a72cfaecce8946896ff6aab9d' \
-            > "$HOME/android-sdk/licenses/mips-android-sysimage-license"
-
       - name: Install Android SDK packages
         run: |
           export ANDROID_SDK_ROOT="$HOME/android-sdk"
           export PATH="$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/platform-tools:$PATH"
+          yes | sdkmanager --licenses
           sdkmanager \
             "platform-tools" \
             "platforms;android-${ANDROID_API_LEVEL}" \

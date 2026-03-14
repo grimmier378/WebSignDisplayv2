@@ -27,14 +27,11 @@ WebSignDisplay v2 is designed for resort and hospitality digital signage. It dis
 
 ## Quick Deploy (Most Common Install Method)
 
-1. ## Download Precompiled APK
-
-If you do not wish to build the project yourself, precompiled APKs are available in the releases folder.
-
+1. Download Precompiled APK https://github.com/grimmier378/WebSignDisplayv2/releases
 2. Copy APK to USB drive
-3. Install via OTG method
+3. [Install via OTG method](https://github.com/grimmier378/WebSignDisplayv2/edit/main/README.md#installing-on-a-firestick-via-otg-cable--usb-drive-no-computer-required)
 4. Launch app
-5. Configure Sign URL
+5. [Configure Sign URL](https://github.com/grimmier378/WebSignDisplayv2?tab=readme-ov-file#configuring-the-app)
 6. Enable Aggressive Restart
 
 ---
@@ -234,10 +231,12 @@ Once installed, open the app on the Firestick. On first launch, the app will aut
 
 ## Known Issues
 
-### Auto-Start on Boot is Non-Functional on Latest Fire OS
+### Auto-Start on Boot
 
-Amazon has restricted background launch capabilities in recent Fire OS releases. The Auto Start on Boot setting is currently non-functional on up-to-date Firestick devices and will not automatically launch the app after a power cycle.
+Amazon has restricted background launch capabilities in recent Fire OS releases. This breaks occasionally on new firstick updates. 
 
 **Workaround:** Launch the app manually once after each power cycle. Once running, the **Aggressive Restart** feature will keep the app in the foreground and prevent it from being backgrounded by remote button presses.
 
-This issue is tracked for a future release pending a resolution from Amazon's platform.
+This issue is tracked as it reoccurs with new amazon updates. 
+
+**Curent Status** This feature is working, but amazon forces you to wait longer before it kicks in. Typically you have to let their scrolling banner of adds load fully first.

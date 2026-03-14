@@ -1,0 +1,30 @@
+# Local environment — machine-specific, never share
+local.properties
+
+# Gradle build cache and daemon files
+.gradle/
+build/
+build/reports/
+build/reports/problems/problems-report.html
+app/build/
+
+# Kotlin compiler artifacts
+.kotlin/
+
+# IDE — Android Studio / IntelliJ
+.idea/
+*.iml
+
+# Keystore / signing secrets
+*.jks
+*.keystore
+keystore.properties
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# claude
+.claude/
+CLAUDE.md
+releases/
