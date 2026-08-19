@@ -9,7 +9,7 @@
             app:key="url"
             app:title="Sign URL"
             app:summary="Enter the full URL of the sign page"
-            app:defaultValue="http://buy.rguest.com/signage"
+            app:defaultValue="https://ig.onagilysys.com/"
             app:useSimpleSummaryProvider="true" />
 
         <!--
